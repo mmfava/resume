@@ -1,0 +1,119 @@
+---
+title: ""
+format: 
+  html:
+    self_contained: true
+    css: custom.css
+editor: visual
+---
+
+# Marília Melo Favalesso
+<p class="personal-infos">[\+55 45 99829-2469](https://wa.me/message/JUMS7WXLYPCUA1) | [marilia.melo.favalesso@gmail.com](marilia.melo.favalesso@gmail.com) | [linkedin.com/in/mariliafavalesso/](https://www.linkedin.com/in/mariliafavalesso/) | [github.com/mmfava](https://github.com/mmfava)</p>
+
+
+## Habilidades técnicas
+
+<b>Linguagens</b>: Python, R, SQL <br>
+<b>Bibliotecas</b>: Matplotlib, NumPy, Pandas, Plotly, Scikit-learn, Seaborn, Tidymodels, Tidyverse <br>
+<b>Outras ferramentas</b>: AWS, Azure DevOps, Docker, Git, GitHub, Google Cloud, Hadoop, Linux, MLFlow, Quarto <br>
+<b>Palavras-chave</b>:  <i>Machine Learning</i>, Análises Estatísticas, Big Data, CI/CD, Versionamento, Preparação e visualização de dados, SIG
+
+
+```{python}
+#| output: asis
+#| echo: false
+
+# IMPORTANT: 'asis' faz o output ser lido como html.
+# IMPORTANT: 'acho = false' esconde os códigos da saída. 
+
+# -------------------------------------------------
+# Template base para cada tipo de experiência
+template = """
+## {type}
+
+{entries}
+"""
+
+# Template para cada entrada
+entry_template = """
+<div class="flex-container-1">
+  <p class="left-aligned"><b>{what} | {where_1}</b></p>
+  <p class="right-aligned">{region} ({country})</p>
+</div>
+
+<div class="flex-container-2">
+  <p class="left-aligned"><i>{where_2}</i></p>
+  <p class="right-aligned">{start} - {end}</p>
+</div>
+
+{details_1}
+"""
+
+# Função para gerar a lista de entradas formatadas para cada tipo
+def generate_entries(entries):
+    formatted_entries = ""
+    for _, entry in entries.iterrows():
+        # Processar apenas se todos os detalhes estiverem presentes
+        # TODO: futuramente, possível adicionar as outras colunas 
+        #       referentes a detalhes - por isso details é lista. 
+        details = [entry['details_1']]
+        details = [detail for detail in details if pd.notnull(detail)]
+        details_formatted = " <br>\n".join(details)
+
+        # Adicionar a entrada formatada
+        formatted_entries += entry_template.format(
+            what=entry['what'],
+            where_1=entry['where_1'],
+            region=entry['region'],
+            country=entry['country'],
+            where_2=entry['where_2'],
+            start=entry['start'],
+            end=entry['end'] if entry['end'] != 'current' else 'Atual',
+            details_1=details_formatted,
+            details_2='',
+            details_3=''
+        )
+    return formatted_entries.strip()
+
+# Bibliotecas
+import pandas as pd
+
+# Importar a planilha com as informações do currículo,
+# especificaente a folha "sections"
+df = pd.read_excel('experiences.xlsx', sheet_name='sections')
+
+# Filtrar para o idioma que será trabalhado
+df = df.query("lenguage == 'PT'")
+
+# Order do mais antigo para o mais novo
+# e na ordem que os tópicos devem aparecer no currículo
+# (1 = Experiência; 2 = Educação)
+df = df.sort_values('start', ascending=False).sort_values('order')
+
+# Atualizar o agrupamento para manter a ordem da coluna 'order'
+grouped = df.groupby(['type', 'order'], sort=False)
+
+# Gerar a saída formatada para cada tipo, mantendo a ordem definida pela coluna 'order'
+output = ""
+for (type_group, _), entries in grouped:
+    output += template.format(
+        type=type_group,
+        entries=generate_entries(entries)
+    )
+
+# Resultados
+print(output)
+```
+
+## Idiomas
+
+<b>Poruguês</b> (Nativo), 
+<b>Espanhol</b> (Intermediário) e
+<b>Inglês</b> (Intermediário)
+
+<div class="right-aligned"><small>
+Produzido com Python & Quarto. <br>
+Última atualização em 01/03/2024 <br>
+Código disponível em [github.com/mmfava](github.com/mmfava)
+</small></div>
+
