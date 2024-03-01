@@ -18,15 +18,15 @@ h3 {
 
 /*estilo especifico para o cabeçalho h1*/
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   padding: 0rem;
 }
 
 /*estilo especifico para o cabeçalho h2*/
 h2 {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   padding-bottom: 0rem;
   border-bottom: 1.5px solid #c8c8c8;
   width: 100%;
@@ -59,7 +59,7 @@ ul,
 ol,
 li {
   color: #323232;
-  font-size: .8rem;
+  font-size: .76rem;
   font-family: var(--font-family);
   margin-bottom: 0rem;
 }
@@ -73,17 +73,17 @@ li {
 /* margem principal */
 main {
   margin-bottom: 0em;
-  margin-top: 0.1em;
+  margin-top: 0em;
 }
 
 /* informações em baixo do título no cv */
 .personal-infos {
   color: #626262;
-  font-size: .8rem;
+  font-size: .76rem;
   font-family: var(--font-family);
   text-align: center;
   margin-top: 0rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 /* ---------------------------------*/
@@ -110,7 +110,7 @@ main {
   justify-content: space-between;
   color: var(--bs-blue);
   margin-bottom: 0rem;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
 }
 
 /* organiza esquerda e direita em mesma linha subtitular */
