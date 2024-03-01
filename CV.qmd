@@ -80,7 +80,7 @@ import pandas as pd
 
 # Importar a planilha com as informações do currículo,
 # especificaente a folha "sections"
-df = pd.read_excel('experiences.xlsx', sheet_name='sections')
+df = pd.read_excel('data/experiences.xlsx', sheet_name='sections')
 
 # Filtrar para o idioma que será trabalhado
 df = df.query("lenguage == 'PT'")
@@ -111,9 +111,21 @@ print(output)
 <b>Espanhol</b> (Intermediário) e
 <b>Inglês</b> (Intermediário)
 
+```{python}
+#| output: false
+#| echo: false
+from datetime import datetime
+
+# Obter a data atual
+data_atual = datetime.now()
+
+# Formatar a data no estilo 'DD/MM/YYYY'
+data_formatada = data_atual.strftime('%d/%m/%Y')
+```
+
 <div class="right-aligned"><small>
-Produzido com Python & Quarto. <br>
-Última atualização em 01/03/2024 <br>
-Código disponível em [github.com/mmfava](github.com/mmfava)
+
+Atualizado em `{python} data_formatada`
+ <br>
 </small></div>
 

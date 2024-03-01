@@ -30,7 +30,7 @@ h2 {
   padding-bottom: 0rem;
   border-bottom: 1.5px solid #c8c8c8;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   margin-bottom: 0.3rem;
 }
 
@@ -62,18 +62,18 @@ li {
   font-size: .8rem;
   font-family: var(--font-family);
   margin-bottom: 0rem;
-  margin-bottom: 0rem;
 }
 
 /* configurações do <small> */
 .small {
-  font-size: 0.7rem !important;
+  font-size: 0.4rem !important;
+  margin-bottom: 0rem;
 }
 
 /* margem principal */
 main {
   margin-bottom: 0em;
-  margin-top: 1em;
+  margin-top: 0.1em;
 }
 
 /* informações em baixo do título no cv */
@@ -83,7 +83,7 @@ main {
   font-family: var(--font-family);
   text-align: center;
   margin-top: 0rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
 /* ---------------------------------*/
