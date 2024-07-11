@@ -4,7 +4,6 @@ format:
   html:
     self_contained: true
     css: custom.css
-editor: visual
 ---
 
 # Marília Melo Favalesso
@@ -14,7 +13,7 @@ editor: visual
 ```{python}
 #| output: false
 #| echo: false
-idioma = 'PT'
+idioma = 'ES'
 ```
 
 <!---- Habilidades técnicas  ------> 
@@ -121,7 +120,13 @@ import pandas as pd
 
 # Importar a planilha com as informações do currículo,
 # especificaente a folha "sections"
-df = pd.read_excel('data/experiences.xlsx', sheet_name='sections')
+import pandas as pd
+
+# Link para exportar a planilha como CSV
+csv_url = 'https://docs.google.com/spreadsheets/d/1h-kFMxdNLBDoanj2kMOimbAMGKqmacwB8Kc_rAcP9Xo/export?format=csv'
+
+# Ler a planilha diretamente no pandas
+df = pd.read_csv(csv_url)
 
 # Filtrar para o idioma que será trabalhado
 df = df.query(f"lenguage == '{idioma}'")
@@ -145,6 +150,7 @@ for (type_group, _), entries in grouped:
 # Resultados
 print(output)
 ```
+
 
 <!---- Idiomas  ------> 
 
@@ -170,7 +176,7 @@ language_skills = {
 }
 
 # Função para imprimir a seção de idiomas no idioma especificado
-def print_language_skills(language='PT'):
+def print_language_skills(language=idioma):
     skills = language_skills.get(language, None)
     if skills:
         # Construir a saída formatada
@@ -198,7 +204,7 @@ data_formatada = data_atual.strftime('%d/%m/%Y')
 
 <div class="right-aligned"><small>
 Made with Python and Quarto <br>
-[github/mmfava/resume](https://github.com/mmfava/resume), `{python} data_formatada`
+[github/mmfava/resume](https://github.com/mmfava/resume)
  <br>
 </small></div>
 
