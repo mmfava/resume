@@ -37,9 +37,9 @@ pip install pandas weasyprint
 
 ## Como Usar
 
-### Passo 1: Configurar a Planilha Google
+### Passo 1: Configurar uma Planilha Google
 
-A planilha Google deve conter as seguintes colunas:
+Configurar uma planilha Google com as suas informações organizadas com as seguintes colunas:
 
 - `lenguage`: Idioma do currículo (PT, EN, ES).
 - `order`: Ordem de exibição das seções no currículo.
